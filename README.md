@@ -24,7 +24,7 @@ The notebook contains the complete workflow:
 
 📊 Dataset
 
-    Source: Uploaded custom dataset (Used_Cars_Dataset.csv)
+    Source: (https://data.world/data-society/used-cars-data)
 
     Total Records: 11,111 entries
 
