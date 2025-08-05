@@ -1,145 +1,155 @@
 # 🚗 Car Price Prediction using Machine Learning
 
-Welcome to the **Car Price Prediction** project! This repository demonstrates how machine learning can be used to estimate car prices based on various features like brand, year, mileage, engine size, and more.
+Welcome to the **Car Price Prediction** project! This project demonstrates how machine learning can be used to estimate car prices based on features like brand, year, mileage, and engine size.
 
 ---
 
-## 📁 Files in this Repository
+## 📁 Files
 
-- `car_price _prediction.ipynb` – Main Jupyter notebook with full code.
-- `README.md` – You're here!
-- `Used_Cars_Dataset.csv` (https://data.world/data-society/used-cars-data)  – Source dataset 
+* `car_price_prediction.ipynb` – Main Jupyter notebook with full implementation
+* `Used_Cars_Dataset.csv` – Dataset from [data.world](https://data.world/data-society/used-cars-data)
+* `README.md` – Project overview
 
 ---
 
 ## 🧠 Objective
 
-A Chinese automobile company is entering the U.S. market and wants to **predict optimal car prices** using historical data. This project:
-- Preprocesses raw car data.
-- Removes outliers using statistical techniques.
-- Selects meaningful features.
-- Trains multiple regression models.
-- Evaluates models using industry-standard metrics.
-- Tunes models with `GridSearchCV`.
-- Saves the best model for future use.
+A Chinese automobile company plans to enter the U.S. market and wants to **predict optimal car prices** using historical data. This project includes:
+
+* Data preprocessing and outlier removal
+* Feature selection and scaling
+* Model training and evaluation
+* Hyperparameter tuning
+* Saving the best model for future use
 
 ---
 
 ## 🔧 Technologies & Libraries
 
+* Python
+* pandas, numpy
+* matplotlib, seaborn
+* scikit-learn (linear\_model, tree, ensemble, svm, metrics, model\_selection)
+* joblib
+
+---
+
+## 📊 Dataset Overview
+
+* **Source**: [Used Car Dataset – data.world](https://data.world/data-society/used-cars-data)
+* **Target**: `Price`
+* **Key Features**:
+
+  * Brand
+  * Model
+  * Year of registration
+  * Mileage
+  * Engine power
+  * Fuel type
+  * Transmission
+
+---
+
+## 🧼 Data Preprocessing
+
+* Dropped irrelevant/missing columns
+* Removed outliers using IQR method
+* Selected top features using `SelectKBest` and `f_regression`
+* Scaled numerical data using `StandardScaler`
+* Split data into training and testing sets
+
+---
+
+## 🤖 Model Building
+
+Algorithms used:
+
+* Linear Regression
+* Decision Tree Regressor
+* Random Forest Regressor
+* Gradient Boosting Regressor
+* Support Vector Regressor
+
+---
+
+## 📈 Model Evaluation
+
+Evaluation Metrics:
+
+* R² Score
+* MAE (Mean Absolute Error)
+* MSE (Mean Squared Error)
+* RMSE (Root Mean Squared Error)
+
 ```python
-pandas         numpy
-matplotlib     seaborn
-sklearn (linear_model, tree, ensemble, svm, metrics, model_selection)
-joblib         PowerTransformer
-
-📊 Data Overview
-
-    📌 File: (https://data.world/data-society/used-cars-data)
-
-    🔢 Features include:
-
-        Brand, Model, Year
-
-        Mileage
-
-        Engine Size
-
-        Fuel Type
-
-        Transmission
-
-        Price (Target)
-
-🧼 1. Data Preprocessing
-✅ Tasks Performed:
-
-    Load and inspect data
-
-    Drop irrelevant or null columns
-
-    Outlier Removal: Using IQR Method
-
-    Feature Selection: Using SelectKBest and f_regression
-
-    Scaling: Using StandardScaler
-
-    Split data using train_test_split
-
-from sklearn.preprocessing import StandardScaler
-from sklearn.feature_selection import SelectKBest, f_regression
-
-🤖 2. Model Building
-Algorithm	Library
-Linear Regression	sklearn.linear_model
-Decision Tree Regressor	sklearn.tree
-Random Forest Regressor	sklearn.ensemble
-Gradient Boosting Regressor	sklearn.ensemble
-Support Vector Regressor	sklearn.svm
-🧪 3. Model Evaluation
-
-Metrics used:
-
-    ✅ R² Score
-
-    📉 MAE – Mean Absolute Error
-
-    📉 MSE – Mean Squared Error
-
-    📉 RMSE – Root Mean Squared Error
-
-Evaluation code sample:
-
 from sklearn.metrics import r2_score, mean_squared_error, mean_absolute_error
+```
 
-🔍 4. Hyperparameter Tuning
+---
 
-Used GridSearchCV to find the best combination of model parameters.
+## 🔍 Hyperparameter Tuning
 
+Used `GridSearchCV` to find the best parameters for models.
+
+```python
 from sklearn.model_selection import GridSearchCV
+```
 
-💾 5. Model Saving
+---
 
-Trained model saved using:
+## 💾 Model Saving
 
+The best-performing model is saved for deployment or future use.
+
+```python
 import joblib
 joblib.dump(best_model, 'car_price_model.pkl')
+```
 
-📈 Visualizations Included
+---
 
-    📌 Boxplots for outlier detection
+## 📊 Visualizations
 
-    🔥 Heatmaps for correlation analysis
+Included visualizations:
 
-    📊 Distribution plots
+* Boxplots for outlier detection
+* Heatmap for correlation analysis
+* Distribution plots
+* Actual vs. Predicted price scatter plots
 
-    🧮 Regression result comparisons
+---
 
-Example:
+## 🚀 How to Run
 
-sns.heatmap(df.corr(), annot=True)
+1. Clone this repository:
 
-🚀 How to Run the Project
-
-    Clone this repo:
-
+```bash
 git clone https://github.com/your-username/car-price-prediction.git
 cd car-price-prediction
+```
 
-    Install dependencies:
+2. Install dependencies:
 
+```bash
 pip install -r requirements.txt
+```
 
-    Launch the notebook:
+3. Launch the notebook:
 
+```bash
 jupyter notebook
+```
 
-    Open car_price _prediction.ipynb and run all cells.
+Open `car_price_prediction.ipynb` and run all cells.
 
-🔮 Future Improvements
+---
 
-    Add deep learning models (TensorFlow, Keras)
+## 🔮 Future Improvements
 
-    Include location-based price predictions
+* Add deep learning models (TensorFlow, Keras)
+* Location-aware pricing
+* Deploy the model as a web application using Flask or Streamlit
 
-    Deploy the model with a web app (Flask or Streamlit)
+---
+
+Let me know if you'd like this saved as a `.md` file or customized further.
