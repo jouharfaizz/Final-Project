@@ -8,7 +8,7 @@ Welcome to the **Car Price Prediction** project! This repository demonstrates ho
 
 - `car_price _prediction.ipynb` – Main Jupyter notebook with full code.
 - `README.md` – You're here!
-- `Used_Cars_Dataset.csv.csv` *(required)* – Source dataset (ensure it’s placed in the same folder).
+- `Used_Cars_Dataset.csv` (https://data.world/data-society/used-cars-data)  – Source dataset 
 
 ---
 
