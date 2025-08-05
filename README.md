@@ -1,107 +1,145 @@
-🚗 Car Price Prediction
+# 🚗 Car Price Prediction using Machine Learning
 
-This project aims to predict car prices using various regression algorithms. It is built to support a Chinese automobile company entering the U.S. market by helping determine competitive pricing strategies using machine learning.
-📁 Project Structure
+Welcome to the **Car Price Prediction** project! This repository demonstrates how machine learning can be used to estimate car prices based on various features like brand, year, mileage, engine size, and more.
 
-car_price_prediction/
-│
-├── car_price _prediction.ipynb  # Main Jupyter notebook with full pipeline
-├── README.md                    # Project documentation
-└── requirements.txt             # (Optional) Dependencies list
+---
 
-📊 Dataset
+## 📁 Files in this Repository
 
-The dataset includes car attributes like:
+- `car_price _prediction.ipynb` – Main Jupyter notebook with full code.
+- `README.md` – You're here!
+- `car data.csv` *(required)* – Source dataset (ensure it’s placed in the same folder).
 
-    Brand
+---
 
-    Model
+## 🧠 Objective
 
-    Engine Size
+A Chinese automobile company is entering the U.S. market and wants to **predict optimal car prices** using historical data. This project:
+- Preprocesses raw car data.
+- Removes outliers using statistical techniques.
+- Selects meaningful features.
+- Trains multiple regression models.
+- Evaluates models using industry-standard metrics.
+- Tunes models with `GridSearchCV`.
+- Saves the best model for future use.
 
-    Fuel Type
+---
 
-    Transmission
+## 🔧 Technologies & Libraries
 
-    Mileage
+```python
+pandas         numpy
+matplotlib     seaborn
+sklearn (linear_model, tree, ensemble, svm, metrics, model_selection)
+joblib         PowerTransformer
 
-    Year
+📊 Data Overview
 
-    Price (target variable)
+    📌 File: car data.csv
 
-⚙️ Steps Performed
-1. Data Preprocessing
+    🔢 Features include:
 
-    Handled missing values and cleaned data
+        Brand, Model, Year
 
-    Removed outliers using IQR method
+        Mileage
 
-    Feature selection with SelectKBest
+        Engine Size
 
-    Scaled features using StandardScaler
+        Fuel Type
 
-    Train-test split using train_test_split
+        Transmission
 
-2. Model Building
+        Price (Target)
 
-    Linear Regression
+🧼 1. Data Preprocessing
+✅ Tasks Performed:
 
-    Decision Tree Regressor
+    Load and inspect data
 
-    Random Forest Regressor
+    Drop irrelevant or null columns
 
-    Gradient Boosting Regressor
+    Outlier Removal: Using IQR Method
 
-    Support Vector Regressor (SVR)
+    Feature Selection: Using SelectKBest and f_regression
 
-3. Evaluation Metrics
+    Scaling: Using StandardScaler
 
-Models were evaluated using:
+    Split data using train_test_split
 
-    R² Score
+from sklearn.preprocessing import StandardScaler
+from sklearn.feature_selection import SelectKBest, f_regression
 
-    Mean Absolute Error (MAE)
+🤖 2. Model Building
+Algorithm	Library
+Linear Regression	sklearn.linear_model
+Decision Tree Regressor	sklearn.tree
+Random Forest Regressor	sklearn.ensemble
+Gradient Boosting Regressor	sklearn.ensemble
+Support Vector Regressor	sklearn.svm
+🧪 3. Model Evaluation
 
-    Mean Squared Error (MSE)
+Metrics used:
 
-    Root Mean Squared Error (RMSE)
+    ✅ R² Score
 
-4. Hyperparameter Tuning
+    📉 MAE – Mean Absolute Error
 
-Used GridSearchCV to fine-tune model parameters for better performance.
-5. Model Deployment
+    📉 MSE – Mean Squared Error
 
-Trained models were saved using joblib for future use and predictions.
+    📉 RMSE – Root Mean Squared Error
+
+Evaluation code sample:
+
+from sklearn.metrics import r2_score, mean_squared_error, mean_absolute_error
+
+🔍 4. Hyperparameter Tuning
+
+Used GridSearchCV to find the best combination of model parameters.
+
+from sklearn.model_selection import GridSearchCV
+
+💾 5. Model Saving
+
+Trained model saved using:
+
+import joblib
+joblib.dump(best_model, 'car_price_model.pkl')
+
 📈 Visualizations Included
 
-    Feature importance charts
+    📌 Boxplots for outlier detection
 
-    Pair plots and heatmaps
+    🔥 Heatmaps for correlation analysis
 
-    Distribution of price
+    📊 Distribution plots
 
-    Regression plots for model predictions
+    🧮 Regression result comparisons
 
-🧪 How to Run the Notebook
+Example:
 
-    Clone this repository:
+sns.heatmap(df.corr(), annot=True)
 
-git clone https://github.com/your-username/car_price_prediction.git
+🚀 How to Run the Project
 
-    Navigate into the project directory:
+    Clone this repo:
 
-cd car_price_prediction
+git clone https://github.com/your-username/car-price-prediction.git
+cd car-price-prediction
 
     Install dependencies:
 
 pip install -r requirements.txt
 
-    Launch Jupyter Notebook:
+    Launch the notebook:
 
 jupyter notebook
 
     Open car_price _prediction.ipynb and run all cells.
 
-✅ Results
+🔮 Future Improvements
 
-The best performing model was: Random Forest Regressor (or whichever model actually performed best).
+    Add deep learning models (TensorFlow, Keras)
+
+    Include location-based price predictions
+
+    Deploy the model with a web app (Flask or Streamlit)
