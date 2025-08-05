@@ -1,75 +1,107 @@
-# 🚗 Used Car Price Prediction
+🚗 Car Price Prediction
 
-This project builds a machine learning model to predict the selling price of used cars based on their attributes such as brand, vehicle type, fuel type, gearbox, power, and mileage. The pipeline includes data preprocessing, exploratory data analysis, feature engineering, model training, evaluation, and price prediction.
-📘 Notebook
+This project aims to predict car prices using various regression algorithms. It is built to support a Chinese automobile company entering the U.S. market by helping determine competitive pricing strategies using machine learning.
+📁 Project Structure
 
-Used_Car_Price_Prediction.ipynb
-The notebook contains the complete workflow:
-
-    📥 Data Loading (CSV/Excel)
-
-    🔍 Exploratory Data Analysis (EDA)
-
-    🧹 Data Cleaning & Preprocessing
-
-    🧠 Feature Engineering (e.g., Car Age)
-
-    🤖 Model Training (Linear Regression, Random Forest)
-
-    📊 Model Evaluation (R², MAE, RMSE)
-
-    📈 Visualizations (Boxplots, Correlation Heatmap, Feature Importance)
-
-    🔮 Price Predictions and Comparisons
+car_price_prediction/
+│
+├── car_price _prediction.ipynb  # Main Jupyter notebook with full pipeline
+├── README.md                    # Project documentation
+└── requirements.txt             # (Optional) Dependencies list
 
 📊 Dataset
 
-    Source: (https://data.world/data-society/used-cars-data)
+The dataset includes car attributes like:
 
-    Total Records: 11,111 entries
+    Brand
 
-    Key Features:
+    Model
 
-        brand, vehicleType, fuelType, gearbox
+    Engine Size
 
-        powerPS, kilometer, notRepairedDamage
+    Fuel Type
 
-        carAge (engineered from year of registration)
+    Transmission
 
-    Target: price (selling price in EUR)
+    Mileage
 
-⚙️ Technologies Used
+    Year
 
-    Python 3.8+
+    Price (target variable)
 
-    Jupyter Notebook
+⚙️ Steps Performed
+1. Data Preprocessing
 
-    Libraries:
+    Handled missing values and cleaned data
 
-        pandas, numpy – Data manipulation
+    Removed outliers using IQR method
 
-        seaborn, matplotlib – Visualization
+    Feature selection with SelectKBest
 
-        scikit-learn – Model building & evaluation
+    Scaled features using StandardScaler
 
-🚀 How to Run the Project
+    Train-test split using train_test_split
 
-    Clone this repository or download the files.
+2. Model Building
 
-    Make sure you have Python and Jupyter installed.
+    Linear Regression
 
-    Install the required libraries:
+    Decision Tree Regressor
+
+    Random Forest Regressor
+
+    Gradient Boosting Regressor
+
+    Support Vector Regressor (SVR)
+
+3. Evaluation Metrics
+
+Models were evaluated using:
+
+    R² Score
+
+    Mean Absolute Error (MAE)
+
+    Mean Squared Error (MSE)
+
+    Root Mean Squared Error (RMSE)
+
+4. Hyperparameter Tuning
+
+Used GridSearchCV to fine-tune model parameters for better performance.
+5. Model Deployment
+
+Trained models were saved using joblib for future use and predictions.
+📈 Visualizations Included
+
+    Feature importance charts
+
+    Pair plots and heatmaps
+
+    Distribution of price
+
+    Regression plots for model predictions
+
+🧪 How to Run the Notebook
+
+    Clone this repository:
+
+git clone https://github.com/your-username/car_price_prediction.git
+
+    Navigate into the project directory:
+
+cd car_price_prediction
+
+    Install dependencies:
 
 pip install -r requirements.txt
 
-Open the notebook:
+    Launch Jupyter Notebook:
 
-    jupyter notebook Used_Car_Price_Prediction.ipynb
+jupyter notebook
 
-📦 Output
+    Open car_price _prediction.ipynb and run all cells.
 
-    Model performance metrics (R², MAE, RMSE)
+✅ Results
 
-    Feature importance visualization
-
-    Actual vs Predicted Price comparison
+The best performing model was: Random Forest Regressor (or whichever model actually performed best).
